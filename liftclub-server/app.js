@@ -2,14 +2,11 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 
-mongoose
-  .connect("mongodb://localhost:27017/liftclubApp", { useNewUrlParser: true })
-  .then(() => {
-    console.log("MONGO CONNECTION OPEN");
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+main().catch((err) => console.log(err));
+
+async function main() {
+  await mongoose.connect("mongodb://localhost:27017/test");
+}
 
 app.get("/r/:id", (req, res) => {
   const { id } = req.params;
