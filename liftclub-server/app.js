@@ -25,18 +25,12 @@ app.get("/r/:id", (req, res) => {
 
 app.get("/liftclubs", async (req, res) => {
   const liftclubs = await Liftclub.find({});
-  console.log(liftclubs);
-  res.send(
-    `Liftclub 1: ${liftclubs[0]._id} - ${liftclubs[0].name}, Liftclub 2: ${liftclubs[1]._id} - ${liftclubs[1].name}`
-  );
+  res.send(liftclubs);
 });
 
 app.get("/users", async (req, res) => {
   const users = await User.find({});
-  console.log(users);
-  res.send(
-    `User 1: ${users[0]._id} - ${users[0].username}, User 2: ${users[1]._id} - ${users[1].username}`
-  );
+  res.send(users);
 });
 
 app.listen(8080, () => {
