@@ -11,6 +11,9 @@ mongoose
     console.log(err);
   });
 
+await Liftclub.deleteMany({});
+await User.deleteMany({});
+
 const seedLiftclubs = [
   {
     name: "Cameron's liftclub",

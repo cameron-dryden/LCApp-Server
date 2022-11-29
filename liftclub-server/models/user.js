@@ -10,6 +10,7 @@ const userSchema = new mongoose.Schema({
     required: true,
   },
   email: { type: String, required: true },
+  joined_liftclubs: [ObjectId],
 });
 
 const User = mongoose.model("User", userSchema);
