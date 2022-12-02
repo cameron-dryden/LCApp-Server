@@ -33,6 +33,14 @@ app.get("/users", async (req, res) => {
   res.send(users);
 });
 
+app.post("/liftclubs", async (req, res) => {
+  const liftclub = new Liftclub(req.body);
+
+  await liftclub.save();
+  console.log("Added entry");
+  res.send("Added entry");
+});
+
 app.listen(8080, () => {
   console.log("Server listening on port 8080");
 });
