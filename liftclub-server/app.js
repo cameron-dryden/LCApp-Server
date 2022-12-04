@@ -41,6 +41,14 @@ app.post("/liftclubs", async (req, res) => {
   res.send("Added entry");
 });
 
+app.post("/users", async (req, res) => {
+  const user = new User(req.body);
+
+  await user.save();
+  console.log("Added entry");
+  res.send("Added entry");
+});
+
 app.listen(8080, () => {
   console.log("Server listening on port 8080");
 });

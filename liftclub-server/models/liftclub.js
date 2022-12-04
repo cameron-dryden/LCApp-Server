@@ -11,6 +11,10 @@ const liftclubSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  owner: {
+    type: mongoose.Types.ObjectId,
+    required: true,
+  },
   days: { type: [dateSchema] },
   location: {
     type: String,

@@ -1,7 +1,11 @@
 const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema({
-  username: {
+  name: {
+    type: String,
+    required: true,
+  },
+  surname: {
     type: String,
     required: true,
   },
@@ -10,7 +14,8 @@ const userSchema = new mongoose.Schema({
     required: true,
   },
   email: { type: String, required: true },
-  joined_liftclubs: [String],
+  ownedLiftclub: { type: mongoose.Types.ObjectId },
+  joined_liftclubs: [mongoose.Types.ObjectId],
 });
 
 const User = mongoose.model("User", userSchema);
