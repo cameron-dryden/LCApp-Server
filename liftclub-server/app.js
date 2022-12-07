@@ -52,6 +52,7 @@ app.post("/users", async (req, res) => {
     })
     .catch((error) => {
       console.log("Error adding entry");
+      console.log(error);
       res.send(error);
     });
 });
