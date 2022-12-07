@@ -44,9 +44,16 @@ app.post("/liftclubs", async (req, res) => {
 app.post("/users", async (req, res) => {
   const user = new User(req.body);
 
-  await user.save();
-  console.log("Added entry");
-  res.send("Added entry");
+  await user
+    .save()
+    .then((data) => {
+      console.log("Added entry");
+      res.send(data);
+    })
+    .catch((error) => {
+      console.log("Error adding entry");
+      res.send(error);
+    });
 });
 
 app.listen(8080, () => {
